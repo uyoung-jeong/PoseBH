@@ -1,6 +1,9 @@
-<h1 align="left">PoseBH: Prototypical Multi-Dataset Training Beyond Human Pose Estimation<a href="https://arxiv.org/abs/2505.17475"><img src="https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg" ></a> </h1> 
+<h1 align="left">PoseBH: Prototypical Multi-Dataset Training Beyond Human Pose Estimation<a href="https://arxiv.org/abs/2505.17475"><img src="https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg" ></a> </h1>
+
+<!--
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/posebh-prototypical-multi-dataset-training/pose-estimation-on-coco-test-dev)](https://paperswithcode.com/sota/pose-estimation-on-coco-test-dev?p=posebh-prototypical-multi-dataset-training)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/posebh-prototypical-multi-dataset-training/pose-estimation-on-ochuman)](https://paperswithcode.com/sota/pose-estimation-on-ochuman?p=posebh-prototypical-multi-dataset-training)
+-->
 
 > PoseBH: Prototypical Multi-Dataset Training Beyond Human Pose Estimation <br>
 > Uyoung Jeong, Jonathan Freer, Seungryul Baek, Hyung Jin Chang, Kwang In Kim <br>
