@@ -1,4 +1,6 @@
-<h1 align="left">PoseBH: Prototypical Multi-Dataset Training Beyond Human Pose Estimation<a href="https://arxiv.org/abs/"><img src="https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg" ></a> </h1> 
+<h1 align="left">PoseBH: Prototypical Multi-Dataset Training Beyond Human Pose Estimation<a href="https://arxiv.org/abs/2505.17475"><img src="https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg" ></a> </h1> 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/posebh-prototypical-multi-dataset-training/pose-estimation-on-coco-test-dev)](https://paperswithcode.com/sota/pose-estimation-on-coco-test-dev?p=posebh-prototypical-multi-dataset-training)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/posebh-prototypical-multi-dataset-training/pose-estimation-on-ochuman)](https://paperswithcode.com/sota/pose-estimation-on-ochuman?p=posebh-prototypical-multi-dataset-training)
 
 > PoseBH: Prototypical Multi-Dataset Training Beyond Human Pose Estimation <br>
 > Uyoung Jeong, Jonathan Freer, Seungryul Baek, Hyung Jin Chang, Kwang In Kim <br>
@@ -10,14 +12,9 @@ PoseBH is a new multi-dataset training framework tackles keypoint heterogeneity 
 supervision through two key techniques. (1) Keypoint prototypes for learning arbitrary keypoints from
 multiple datasets ensuring high transferability. (2) A cross-type self-supervision mechanism that aligns keypoint regression outputs with keypoint embeddings, enriching supervision for unlabeled keypoints.
 
-## To Do
-Currently, camera-ready paper and the trained model weights are not provided.
-
-- [ ] Upload trained models
-- [ ] Upload More models
 
 ## Model Zoo
-Model weights trained with our method are provided in [Google Drive]().
+Model weights trained with our method are provided in [Google Drive](https://drive.google.com/drive/folders/1NbLLdQqmBN6rgGmJiB_vslm_wFwFcWGM?usp=sharing).
 
 Place the trained weights in `weights/posebh`. e.g., `weights/posebh/base.pth`.
 
@@ -107,14 +104,21 @@ Configs in the table are only for evaluation.
 | PoseBH-B | 256x192 | 57.9 | 69.5 | [config](configs/wholebody/2d_kpt_sview_rgb_img/topdown_heatmap/coco-wholebody/ViTPose_base_wholebody_256x192.py) |
 | PoseBH-H | 256x192 | 62.0 | 72.9 | [config](configs/wholebody/2d_kpt_sview_rgb_img/topdown_heatmap/coco-wholebody/ViTPose_huge_wholebody_256x192.py) |
 
-<!---
-### Transfer results on the hand dataset (InterHand2.6M)
+### Transfer on InterHand2.6M
 
-| Model | Resolution | AUC | EPE | PCK | config |
+| Model | Resolution | PCK | AUC | EPE | config |
+| :----: | :----: | :----: | :----: | :----: | :---: |
+| ViTPose++-B | 256x192 | 98.3 | 86.2 | 4.02 | [config](configs/hand/2d_kpt_sview_rgb_img/topdown_heatmap/interhand2d/ViTPose_base_interhand2d_all_256x192.py) |
+| PoseBH-B (paper) | 256x192 | 98.6 | 87.1 | 3.70 | [config](configs/hand/2d_kpt_sview_rgb_img/topdown_heatmap/interhand2d/ViTPose_huge_interhand2d_all_256x192.py) |
+| PoseBH-B | 256x192 | 98.7 | 86.6 | 3.61 | [config](configs/hand/2d_kpt_sview_rgb_img/topdown_heatmap/interhand2d/ViTPose_huge_interhand2d_all_256x192.py) |
+
+### Transfer on 3DPW
+
+| Model | Resolution | AP | AR | config |
 | :----: | :----: | :----: | :----: | :----: |
-| ViTPose++-B | 256x192 | - | - | - | [config](configs/hand/2d_kpt_sview_rgb_img/topdown_heatmap/interhand2d/ViTPose_base_interhand2d_all_256x192.py) |
-| ViTPose++-H | 256x192 | - | - | - | [config](configs/hand/2d_kpt_sview_rgb_img/topdown_heatmap/interhand2d/ViTPose_huge_interhand2d_all_256x192.py) |
--->
+| ViTPose++-B | 256x192 | 81.7 | 85.2 | [config](configs/hand/2d_kpt_sview_rgb_img/topdown_heatmap/interhand2d/ViTPose_base_interhand2d_all_256x192.py) |
+| PoseBH-B (paper) | 256x192 | 83.6 | 87.1 | [config](configs/hand/2d_kpt_sview_rgb_img/topdown_heatmap/interhand2d/ViTPose_huge_interhand2d_all_256x192.py) |
+| PoseBH-B | 256x192 | 83.8 | 87.1 | [config](configs/hand/2d_kpt_sview_rgb_img/topdown_heatmap/interhand2d/ViTPose_huge_interhand2d_all_256x192.py) |
 
 ## Usage
 ### Setup
@@ -136,7 +140,7 @@ pip install "git+https://github.com/open-mmlab/mmcv.git@v1.4.8"
 ```
 
 ```
-cd /path/to/ViTPose
+cd /path/to/PoseBH
 pip install -v -e .
 ```
 
@@ -144,6 +148,25 @@ install other packages
 ```bash
 pip install -r requirements.txt
 ```
+
+### Directory Tree
+```
+data
+├─ aic
+├─ ap10k
+├─ ap36k
+├─ coco
+└─ mpii
+
+weights
+├─ vitpose+_base.pth
+└─ vitpose+_huge.pth
+
+split_weights
+└─ base_coco.pth
+```
+Download `vitpose+_base.pth` and `vitpose+_huge.pth` file from [ViTPose](https://github.com/ViTAE-Transformer/ViTPose).
+To get the `base_coco.pth` file, run `tools/model_split.py` on `vitpose+_base.pth` file.
 
 ### Training
 After downloading the pretrained models, please conduct the experiments by running
