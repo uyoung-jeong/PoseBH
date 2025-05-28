@@ -158,6 +158,8 @@ data
 ├─ aic
 ├─ ap10k
 ├─ ap36k
+│  └─annotations
+│    └─ap36k_train.json
 ├─ coco
 └─ mpii
 
@@ -170,6 +172,8 @@ split_weights
 ```
 Download `vitpose+_base.pth` and `vitpose+_huge.pth` file from [ViTPose](https://github.com/ViTAE-Transformer/ViTPose).
 To get the `base_coco.pth` file, run `tools/model_split.py` on `vitpose+_base.pth` file.
+
+Download annotation files for APT-36K and 3DPW [here](https://drive.google.com/drive/folders/1LSY2zJojctruRjVP_CzgcGqXDovsdvNT?usp=sharing).
 
 ### Training
 After downloading the pretrained models, please conduct the experiments by running
