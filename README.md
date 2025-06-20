@@ -11,7 +11,7 @@
 
 <img src="figures/figure1.png" class="left" width='80%'>
 
-PoseBH is a new multi-dataset training framework tackles keypoint heterogeneity and limited
+PoseBH is a new multi-dataset training framework that tackles keypoint heterogeneity and limited
 supervision through two key techniques. (1) Keypoint prototypes for learning arbitrary keypoints from
 multiple datasets ensuring high transferability. (2) A cross-type self-supervision mechanism that aligns keypoint regression outputs with keypoint embeddings, enriching supervision for unlabeled keypoints.
 
@@ -227,7 +227,14 @@ python -m torch.distributed.launch --nnodes 1 --node_rank 0 --nproc_per_node 4 -
 
 ## Citation
 ```
-
+@InProceedings{Jeong_2025_CVPR,
+    author    = {Jeong, Uyoung and Freer, Jonathan and Baek, Seungryul and Chang, Hyung Jin and Kim, Kwang In},
+    title     = {PoseBH: Prototypical Multi-Dataset Training Beyond Human Pose Estimation},
+    booktitle = {Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR)},
+    month     = {June},
+    year      = {2025},
+    pages     = {12278-12288}
+}
 ```
 
 ## Acknowledgements
